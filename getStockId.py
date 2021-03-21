@@ -11,7 +11,7 @@ try:
     response = urllib2.urlopen(request)
     pageCode = response.read().decode('gbk')
 except Exception as e:
-    print e
+    print(e)
 
 pattern = re.compile('<tr .*?>.*?<td .*?>(.*?)</td>.*?<td .*?>(.*?)</td>.*?'+
                      '<td .*?>(.*?)</td>.*?<td .*?>(.*?)</td>.*?</tr>.*?'+'<tr>.*?<td .*?>(.*?)</td>.*?<td .*?>(.*?)</td>.*?'+
