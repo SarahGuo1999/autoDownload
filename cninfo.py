@@ -1,6 +1,6 @@
 # -*- coding:utf-8 -*-
 import urllib
-import urllib2
+import urllib.request
 import re
 import json
 import os
@@ -55,7 +55,8 @@ class infoCrawl(Thread):
         self.fileList[stockId] = file_name
         download_url =  download_url = 'http://www.cninfo.com.cn/cninfo-new/disclosure/sse/download/'+part_url
         try:
-            datas=urllib2.urlopen(download_url,timeout = 50)
+            datas=urllib.request.urlopen(download_url)
+      
             f = open(file_name,'wb')
             block_sz = 8192
             while True:
@@ -121,8 +122,8 @@ class infoCrawl(Thread):
                 'tabName':'fulltext'
                 }
             post_data_url = urllib.urlencode(post_data)
-            request = urllib2.Request(dest_url,headers=self.header,data=post_data_url)
-            response = urllib2.urlopen(request,timeout=30)
+            request = urllib.request(dest_url,headers=self.header,data=post_data_url)
+            response = urllib.request.urlopen(request,timeout=30)
             pageCode = response.read().decode('utf-8')
         except Exception as e:
             print(e)
