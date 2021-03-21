@@ -77,7 +77,7 @@ class p2t():
             file_stream = it_image.stream.get_rawdata()
             if file_stream:
                  file_ext = self.determine_image_type(file_stream[0:4])
-                 print file_ext
+                 print(file_ext)
                  if file_ext:
                      file_name = ''.join([str(page_number),'_',it_image.name,file_ext])
                      if self.write_file(images_folder,file_name,file_stream,flags='wb'):
