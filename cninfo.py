@@ -65,11 +65,11 @@ class infoCrawl(Thread):
                 f.write(buffer)
             f.close()
         except Exception as e:
-            print e
+            print(e)
 
     def getPages(self,infile):
         outfile = infile.replace('pdf','txt')
-        print outfile
+        print(outfile)
         removeNoneLine = re.compile(r'\n[\s|]*\n')
         debug = 0
         pagenos = set()
@@ -125,7 +125,7 @@ class infoCrawl(Thread):
             response = urllib2.urlopen(request,timeout=30)
             pageCode = response.read().decode('utf-8')
         except Exception as e:
-            print e
+            print(e)
             return 
 
         data = json.loads(pageCode)
